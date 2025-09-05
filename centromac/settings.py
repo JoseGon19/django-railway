@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'centromac.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'railway',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': os.environ.get('railway', ''),
         'USER': os.environ.get('root', ''),
         'PASSWORD': os.environ.get('dIbNqidFueVxFmcVrCMuJlmqRTuSCjgD', ''),
