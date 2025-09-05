@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 import dj_database_url
 from dotenv import load_dotenv
-
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -79,9 +79,13 @@ WSGI_APPLICATION = 'centromac.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASE
+
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
+
+
 
 
 # Password validation
@@ -127,4 +131,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-CSRF_TRUSTED_ORIGINS = ['http://*','https://django-railway-production-671a.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = [
+    "https://django-railway-production-671a.up.railway.app",
+]
