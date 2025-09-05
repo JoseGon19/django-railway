@@ -1,1 +1,1 @@
-web: python manage.py collectstatic && gunicorn centromac.wsgi
+web: python manage.py collectstatic --noinput && gunicorn centromac.wsgi
